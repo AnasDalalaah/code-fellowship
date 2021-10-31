@@ -1,7 +1,7 @@
 package com.example.codefellowship.codefellowship.models;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 @Entity
 public class Post {
@@ -12,13 +12,21 @@ public class Post {
     private String body;
     private LocalDateTime createdAt = LocalDateTime.now();
     @ManyToOne
-    private ApplicationUser user;
+    private ApplicationUser applicationUser;
 
     public Post(){}
 
-    public Post(String body , ApplicationUser user) {
+    public Post(String body , ApplicationUser applicationUser) {
         this.body = body;
-        this.user = user;
+        this.applicationUser = applicationUser;
+    }
+
+    public Post(){
+
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getBody() {
@@ -29,29 +37,11 @@ public class Post {
         this.body = body;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public int getCreatedAt() {
         return createdAt;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public ApplicationUser getUser() {
-        return user;
-    }
-
-    public void setUser(ApplicationUser user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", body='" + body + '\'' +
-                ", created At=" + createdAt +
-                ", user=" + user +
-                '}';
+    public void setCreatedAt(int createdAt) {
+        this.createdAt = createdAt;
     }
 }
