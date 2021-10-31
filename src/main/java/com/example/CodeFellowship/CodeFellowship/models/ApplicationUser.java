@@ -23,6 +23,8 @@ public class ApplicationUser implements UserDetails {
     private String lastName;
     private String dateOfBirth;
     private String bio;
+    this.imageUrl = imageUrl;
+
  @OneToMany(mappedBy = "applicationUser")
     private List<Post> post;
         @ManyToMany(cascade = {CascadeType.ALL})
@@ -45,13 +47,15 @@ public class ApplicationUser implements UserDetails {
     private Set <ApplicationUser> following = new HashSet<>();
 
     public ApplicationUser(){}
-    public ApplicationUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio) {
+    public ApplicationUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio, String imageUrl) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.bio = bio;
+        this.imageUrl = imageUrl;
+
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -163,4 +167,12 @@ public class ApplicationUser implements UserDetails {
         this.following = following
 
 }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
 }
