@@ -1,0 +1,84 @@
+body{
+    background-image: url("https://previews.123rf.com/images/milkos/milkos1709/milkos170900124/85215752-writing-planning-or-preparing-to-exam-background-study-and-work-in-office-mockup-top-view-of-spiral-.jpg");
+    background-size:cover;
+}
+h1{
+       text-align: center;
+
+       font-size: xx-large;
+       color: #21cc3e;
+       text-decoration: dotted;
+       font-family: fantasy;
+       letter-spacing: 10px;
+}
+h2{
+color:#21cc3e;
+text-align:center;
+}
+
+h3{
+    text-align: center;
+
+         font-size: xx-large;
+         color: #21cc3e;
+         text-decoration: dotted;
+         font-family: fantasy;
+         letter-spacing: 10px;
+}
+
+h5{
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-size:xxx-large;
+    color: #21cc3e;;
+}
+
+h6{
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-size:xxx-large;
+    color: #21cc3e;;
+}
+
+p{
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-size:large;
+       color: #21cc3e;;
+   }
+
+
+input[type=submit] {
+    width: 100%;
+
+    color: #21cc3e;;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #cf8345;
+}
+
+
+a{
+      text-align: center;
+      color: aliceblue;
+      text-decoration: none;
+      margin-left: 44.5%;
+      font-size: 36px;
+  }
+  a:hover{
+  color:green;
+  }
+
+
+button {
+    padding: 10px 30px;
+    margin-left: 47.8%;
+    border-radius: 10%;
+    background: #27a123;
+}

@@ -1,7 +1,6 @@
 package com.example.codefellowship.codefellowship.controllers;
-
-import com.example.codefellowship.codefellowship.models.ApplicationUser;
-import com.example.codefellowship.codefellowship.repos.ApplicationUserRepository;
+import com.example.CodeFellowship.CodeFellowship.models.ApplicationUser;
+import com.example.CodeFellowship.CodeFellowship.repos.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -9,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
 public class ApplicationUserController {
@@ -23,18 +23,25 @@ public class ApplicationUserController {
         return "signup.html";
     }
 
+    @PostMapping("/signup")
+    public RedirectView addNewUser (@ModelAttribute ApplicationUser user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        applicationUserRepository.save(user);
+        return new RedirectView ("/login");
+    }
+    /////
+    
     @GetMapping("/login")
-    public String getSign() {
-        return "signin.html";
+    public String getLoginPage(Principal p, Model model){
+        try{
+            model.addAttribute("userData",p.getName());
+        }catch (NullPointerException e){
+            model.addAttribute("userData","");
+        }
+        return "login.html";
     }
 
-    @PostMapping("/signup")
-    public RedirectView signUp(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password,
-                               @RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName,
-                               @RequestParam(value = "dateOfBirth") String dateOfBirth, @RequestParam(value = "bio") String bio) {
-        ApplicationUser newUser = new ApplicationUser(username, bCryptPasswordEncoder
-                .encode(password), firstName, lastName, dateOfBirth, bio);
-        applicationUserRepository.save(newUser);
-        return new RedirectView("/login");
+
+   
     }
 }

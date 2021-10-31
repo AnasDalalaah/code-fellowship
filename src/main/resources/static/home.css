@@ -4,13 +4,15 @@
 }
 
 body {
-    background-color: #c29416;
+    background-image:url("https://png.pngtree.com/thumb_back/fh260/background/20200731/pngtree-blue-carbon-background-with-sport-style-and-golden-light-image_371487.jpg");
+    background-size:cover;
+
     height: 100vh;
 }
 
 main {
     display: grid;
-    grid-template-columns: repeat(3, 3fr);
+    grid-template-columns: repeat(4, 5fr);
     gap: 15px;
 }
 
@@ -22,9 +24,36 @@ padding:20px;
 
 }
 
+.home a{
+    margin:15px;
+    padding:15px;
+    }
+
 h1{
 size: 20px;
 margin:10px;
 text-align:center;
-color:rgb(28, 37, 170);
+color:rgb(59, 219, 224);
+}
+
+
+.a{
+
+    size: 30px;
+    margin: 10px;
+    padding: 20px;
+    display: inline-block;
+
+    font-size: 33px;
+    margin-left: 31%;
+}
+.a a{
+color:rgb(160, 15, 15);
+text-decoration:none;
+padding:22px;
+}
+
+.a a:hover{
+
+color:#e054d9;
 }
